@@ -61,7 +61,9 @@ class TareasProvider extends ChangeNotifier {
     List<String>? tareasJson = prefs.getStringList('tareas');
     if (tareasJson != null) {
       _tareas = tareasJson.map((j) => Tarea.fromJson(jsonDecode(j))).toList();
-      notifyListeners();
+    } else {
+      _tareas = [];
     }
-  }
+    notifyListeners();
+    }
 }
